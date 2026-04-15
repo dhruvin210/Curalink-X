@@ -1,5 +1,3 @@
-import { app } from "./app.js";
-import { connectDatabase } from "./config/db.js";
 import { env } from "./config/env.js";
 
 const serializeError = (error) => ({
@@ -19,21 +17,37 @@ const serializeError = (error) => ({
       : error?.cause
 });
 
+const logFatalError = (label, error) => {
+  console.error(label, JSON.stringify(serializeError(error), null, 2));
+};
+
+process.on("unhandledRejection", (reason) => {
+  logFatalError("Unhandled promise rejection", reason);
+  process.exit(1);
+});
+
+process.on("uncaughtException", (error) => {
+  logFatalError("Uncaught exception", error);
+  process.exit(1);
+});
+
 const startServer = async () => {
   try {
-    if (!env.mongoUri) {
+    if (!process.env.MONGODB_URI) {
       throw new Error("MONGODB_URI is missing.");
     }
+
+    const [{ app }, { connectDatabase }] = await Promise.all([
+      import("./app.js"),
+      import("./config/db.js")
+    ]);
 
     await connectDatabase();
     app.listen(env.port, () => {
       console.log(`Curalink X API listening on port ${env.port}`);
     });
   } catch (error) {
-    console.error(
-      "Failed to start Curalink X API",
-      JSON.stringify(serializeError(error), null, 2)
-    );
+    logFatalError("Failed to start Curalink X API", error);
     process.exit(1);
   }
 };
