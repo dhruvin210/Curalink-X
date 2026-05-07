@@ -37,3 +37,12 @@ export function clampScore(value) {
 
   return Math.max(0, Math.min(100, Math.round(numeric * 100)));
 }
+
+export function getInitials(name = "") {
+  return name
+    .trim()
+    .split(/\s+/)
+    .slice(0, 2)
+    .map((part) => part.charAt(0).toUpperCase())
+    .join("");
+}

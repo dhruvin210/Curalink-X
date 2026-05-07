@@ -3,6 +3,7 @@ import ReactMarkdown from "react-markdown";
 import { Activity, AlertTriangle, FlaskConical, Sparkles } from "lucide-react";
 import { useMemo } from "react";
 import { useStreamingText } from "../../hooks/useStreamingText";
+import { APP_NAME } from "../../lib/brand";
 import { Badge } from "../ui/badge";
 import { Card } from "../ui/card";
 
@@ -55,7 +56,7 @@ export function MessageBubble({ message, isLatestAssistant }) {
       className={`flex ${isAssistant ? "justify-start" : "justify-end"}`}
     >
       <Card
-        className={`max-w-3xl px-5 py-4 ${
+        className={`w-full max-w-3xl px-4 py-4 sm:px-5 ${
           isAssistant
             ? "border-slate-200/70 bg-white/90 dark:border-white/10 dark:bg-slate-900/70"
             : "border-sky-500/20 bg-sky-500/10"
@@ -63,7 +64,7 @@ export function MessageBubble({ message, isLatestAssistant }) {
       >
         <div className="mb-3 flex items-center gap-2">
           <Badge tone={isAssistant ? "info" : "neutral"}>
-            {isAssistant ? "Curalink X" : "Researcher"}
+            {isAssistant ? APP_NAME : "Researcher"}
           </Badge>
           {isAssistant ? <Sparkles className="h-4 w-4 text-sky-300" /> : null}
         </div>

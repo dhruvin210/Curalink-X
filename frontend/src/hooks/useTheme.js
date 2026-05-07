@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const STORAGE_KEY = "curalink-theme";
+const STORAGE_KEY = "aurevia-theme";
 
 export function useTheme() {
   const [theme, setTheme] = useState(() => {

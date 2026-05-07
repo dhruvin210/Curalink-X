@@ -8,6 +8,7 @@ import {
   Search,
   SunMedium
 } from "lucide-react";
+import { APP_FULL_NAME, APP_NAME } from "../../lib/brand";
 import { formatRelativeSession } from "../../lib/utils";
 import { useThemeContext } from "../../hooks/useThemeContext";
 import { Badge } from "../ui/badge";
@@ -40,10 +41,10 @@ export function ResearchSidebar({
           <div className="flex items-start justify-between gap-3">
             <div>
               <p className="text-xs uppercase tracking-[0.25em] text-sky-500 dark:text-sky-300">
-                Curalink X
+                {APP_NAME}
               </p>
               <CardTitle className="mt-2 text-2xl leading-tight">
-                AI Medical Research Copilot
+                {APP_FULL_NAME}
               </CardTitle>
             </div>
             <Button
@@ -107,7 +108,7 @@ export function ResearchSidebar({
           </div>
         </CardHeader>
         <CardContent className="flex min-h-0 flex-1 flex-col gap-4">
-          <ScrollArea className="h-[280px]">
+          <ScrollArea className="h-[280px] lg:h-[360px]">
             <div className="space-y-3 pr-3">
               <AnimatePresence initial={false}>
                 {sessions.map((session) => (

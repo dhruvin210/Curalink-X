@@ -6,7 +6,7 @@ const router = Router();
 router.get("/health", (req, res) => {
   res.json({
     status: "ok",
-    service: "Curalink X API"
+    service: "Aurevia API"
   });
 });
 

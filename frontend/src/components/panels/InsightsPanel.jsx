@@ -46,8 +46,8 @@ export function InsightsPanel({
             <Badge tone="info">Live synthesis</Badge>
           </div>
         </CardHeader>
-        <CardContent className="h-[calc(100%-6.5rem)] p-0">
-          <ScrollArea className="h-full">
+        <CardContent className="p-0 xl:h-[calc(100%-6.5rem)]">
+          <ScrollArea className="max-h-[72vh] xl:h-full xl:max-h-none">
             <div className="space-y-5 p-6">
               <WhatIfPanel
                 currentValue={whatIfValue}

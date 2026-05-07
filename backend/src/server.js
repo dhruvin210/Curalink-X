@@ -44,10 +44,10 @@ const startServer = async () => {
 
     await connectDatabase();
     app.listen(env.port, () => {
-      console.log(`Curalink X API listening on port ${env.port}`);
+      console.log(`Aurevia API listening on port ${env.port}`);
     });
   } catch (error) {
-    logFatalError("Failed to start Curalink X API", error);
+    logFatalError("Failed to start Aurevia API", error);
     process.exit(1);
   }
 };

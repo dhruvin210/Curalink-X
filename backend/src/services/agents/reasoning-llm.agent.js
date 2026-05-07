@@ -9,7 +9,7 @@ const openai = env.openAiApiKey
   : null;
 
 const buildFallback = ({ context, publications, trials, riskAnalysis }) => ({
-  overview: `Curalink X reviewed ${publications.length} publication(s) and ${trials.length} clinical trial record(s) for ${
+  overview: `Aurevia reviewed ${publications.length} publication(s) and ${trials.length} clinical trial record(s) for ${
     context.disease || "the requested condition"
   }. The strongest evidence clusters around the top-ranked sources below, and the risk analysis is limited to retrieved evidence mentioning ${
     context.treatment || "the requested intervention"

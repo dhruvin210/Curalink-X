@@ -8,6 +8,7 @@ import {
   Sparkles
 } from "lucide-react";
 import { useState } from "react";
+import { APP_NAME } from "../../lib/brand";
 import {
   Collapsible,
   CollapsibleContent,
@@ -54,14 +55,14 @@ export function QueryComposer({ formState, onChange, onSubmit, loading }) {
   };
 
   return (
-    <div className="rounded-[32px] border border-slate-200/70 bg-white/88 p-6 shadow-[0_24px_80px_rgba(2,6,23,0.12)] backdrop-blur-xl dark:border-white/10 dark:bg-slate-950/72 dark:shadow-[0_24px_80px_rgba(2,6,23,0.3)]">
+    <div className="rounded-[28px] border border-slate-200/70 bg-white/88 p-4 shadow-[0_24px_80px_rgba(2,6,23,0.12)] backdrop-blur-xl dark:border-white/10 dark:bg-slate-950/72 dark:shadow-[0_24px_80px_rgba(2,6,23,0.3)] sm:rounded-[32px] sm:p-6">
       <div className="mb-5 flex flex-wrap items-start justify-between gap-4">
         <div className="max-w-3xl">
           <p className="text-xs uppercase tracking-[0.28em] text-sky-500 dark:text-sky-300">
             Evidence Intake
           </p>
-          <h2 className="mt-2 text-2xl font-semibold text-slate-950 dark:text-white">
-            Turn complex medical questions into ranked evidence, trial signals, and risk insight
+          <h2 className="mt-2 text-xl font-semibold text-slate-950 dark:text-white sm:text-2xl">
+            Convert clinical questions into evidence-ranked insight, trial signals, and treatment risk clarity
           </h2>
           <p className="mt-2 text-sm leading-7 text-slate-600 dark:text-slate-400">
             Ask naturally, or combine your message with structured disease and treatment
@@ -103,7 +104,7 @@ export function QueryComposer({ formState, onChange, onSubmit, loading }) {
               onChange={onChange}
               onKeyDown={handleKeyDown}
               placeholder="Example: What is the latest evidence for deep brain stimulation in Parkinson's disease, and how would Vitamin D change the risk-benefit profile?"
-              className="min-h-[170px] resize-none rounded-[24px] border border-slate-200 bg-slate-50/90 px-4 py-4 text-base leading-7 text-slate-900 shadow-none focus:ring-2 dark:border-white/10 dark:bg-slate-900/80 dark:text-slate-50"
+              className="min-h-[150px] resize-none rounded-[22px] border border-slate-200 bg-slate-50/90 px-4 py-4 text-sm leading-7 text-slate-900 shadow-none focus:ring-2 dark:border-white/10 dark:bg-slate-900/80 dark:text-slate-50 sm:min-h-[170px] sm:rounded-[24px] sm:text-base"
             />
 
             <div className="mt-4 flex flex-col gap-4 xl:flex-row xl:items-end xl:justify-between">
@@ -206,7 +207,7 @@ export function QueryComposer({ formState, onChange, onSubmit, loading }) {
 
         <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
           <p className="max-w-2xl text-sm text-slate-600 dark:text-slate-400">
-            Curalink X expands your query, retrieves PubMed, OpenAlex, and clinical
+                    {APP_NAME} expands your query, retrieves PubMed, OpenAlex, and clinical
             trial data, then reranks the strongest evidence before synthesis.
           </p>
           <div className="text-xs uppercase tracking-[0.2em] text-slate-500 dark:text-slate-500">

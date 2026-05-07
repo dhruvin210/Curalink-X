@@ -2,6 +2,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { MessageSquareDashed } from "lucide-react";
 import { useMemo } from "react";
 import { useAutoScroll } from "../../hooks/useAutoScroll";
+import { APP_NAME } from "../../lib/brand";
 import { ScrollArea } from "../ui/scroll-area";
 import { Skeleton } from "../ui/skeleton";
 import { MessageBubble } from "./MessageBubble";
@@ -26,7 +27,7 @@ export function ChatFeed({ activeSession, loading, loadingSession }) {
           Start a medical research thread
         </h3>
         <p className="mt-2 max-w-md text-sm text-slate-600 dark:text-slate-400">
-          Ask a treatment, disease, or trial question and Curalink X will synthesize
+          Ask a treatment, disease, or trial question and {APP_NAME} will synthesize
           ranked evidence, what-if analysis, and risk signals into the workspace.
         </p>
       </div>
@@ -34,7 +35,10 @@ export function ChatFeed({ activeSession, loading, loadingSession }) {
   }
 
   return (
-    <ScrollArea className="h-[calc(100vh-18rem)] pr-3" ref={scrollRef}>
+    <ScrollArea
+      className="h-[min(62vh,760px)] pr-3 lg:h-[calc(100vh-20rem)]"
+      ref={scrollRef}
+    >
       <div className="space-y-4 pb-4">
         {loadingSession ? (
           <div className="space-y-3">
